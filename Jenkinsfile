@@ -13,7 +13,14 @@ pipeline{
             steps {
                sh 'sudo apt update && sudo apt install -y maven'
             }
-        }   
+        }  
+        stage('Pull Code') {
+            steps {
+                // Step to pull the code from Git repository
+                sh 'docker compose -f /var/lib/jenkins/workspace/mvn-project-test/docker-compose.yml' up -d
+
+            }
+        } 
         stage('clean') {
             steps {
                sh 'mvn clean'

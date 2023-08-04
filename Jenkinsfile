@@ -21,14 +21,14 @@ pipeline{
 
             }
         } 
-        stage('clean') {
+        // stage('clean') {
+        //     steps {
+        //        sh 'mvn clean'
+        //     }
+        // }
+        stage('clen &  build') {
             steps {
-               sh 'mvn clean'
-            }
-        }
-        stage('test &  build') {
-            steps {
-                sh 'mvn package'
+                sh 'mvn clean package'
             }
         }
         stage('Sonarqube') {

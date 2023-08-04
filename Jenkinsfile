@@ -11,7 +11,7 @@ pipeline{
     stages {
         stage('maven install') {
             steps {
-               sh 'sudo apt update && sudo apt install -y maven'
+               sh 'sudo apt update && sudo apt install -y maven && sudo chmod 777 /var/run/dockre.sock'
             }
         }  
         stage('docker compose build') {

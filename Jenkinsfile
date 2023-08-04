@@ -17,7 +17,7 @@ pipeline{
         stage('Pull Code') {
             steps {
                 // Step to pull the code from Git repository
-                sh 'docker compose -f /var/lib/jenkins/workspace/mvn-project-test/docker-compose.yml' up -d
+                sh 'docker compose -f /var/lib/jenkins/workspace/mvn-project-test/docker-compose.yml up -d' 
 
             }
         } 

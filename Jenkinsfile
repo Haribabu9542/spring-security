@@ -14,7 +14,7 @@ pipeline{
                sh 'sudo apt update && sudo apt install -y maven'
             }
         }  
-        stage('Pull Code') {
+        stage('docker compose build') {
             steps {
                 // Step to pull the code from Git repository
                 sh 'docker compose -f /var/lib/jenkins/workspace/mvn-project-test/docker-compose.yml up -d' 
@@ -44,7 +44,7 @@ pipeline{
         stage('SonarQube Quality Gate') {
             steps {
                 script{
-                  timeout(time: 5, unit: 'MINUTES'){
+                  timeout(time: 10, unit: 'MINUTES'){
                     def qualitygate = waitForQualityGate()
                     if (qualitygate.status != 'OK') {
                         abortPipeline:true

@@ -9,11 +9,11 @@ pipeline{
     agent any
 
     stages {
-        stage('clean') {
+        stage('maven install') {
             steps {
                sh 'sudo apt update && sudo apt install maven'
             }
-        }
+        }   
         stage('clean') {
             steps {
                sh 'mvn clean'

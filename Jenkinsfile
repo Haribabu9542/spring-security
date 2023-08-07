@@ -50,7 +50,7 @@ pipeline{
                         abortPipeline:true
                         error "Pipeline aborted due to quality gate failure:   ${qualitygate.status}"
                     }else{
-                        echo "Quality Gate Passed"
+                        echo "Quality Gate Passed."
                     }
                   }
                 }

@@ -7,6 +7,9 @@ pipeline{
   }
 // pipeline {
     agent any
+      tools {
+        jdk 'JDK18'
+    }
 
     stages {
         stage('maven install') {

@@ -2,7 +2,7 @@ pipeline{
   environment {
     scannerHome = tool 'SonarQubeScanner'
     registry = "bagit.bassure.in/haribabu9542"
-    registryCredential = 'd02083cb-8700-49c3-abc7-53c57d9b86a1'
+    registryCredential = 'dockerhub'
     dockerImage = ''
   }
     agent any
@@ -75,7 +75,7 @@ pipeline{
           stage('Push Image') {
               steps{
                   script {
-                      docker.withRegistry( '', credentials(registryCredential) )    {
+                      docker.withRegistry( registry, credentials(registryCredential) )    {
                         dockerImage.push()
                       }
                   }

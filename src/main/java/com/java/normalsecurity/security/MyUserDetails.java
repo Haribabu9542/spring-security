@@ -25,7 +25,6 @@ public class MyUserDetails implements UserDetails {
         password = student.getPassword();
         authorities = Arrays.stream(student.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
-                .peek(data-> System.out.println("this is role: "+data))
                 .collect(Collectors.toList());
     }
 

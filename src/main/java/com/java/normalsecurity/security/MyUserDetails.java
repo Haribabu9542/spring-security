@@ -1,6 +1,5 @@
 package com.java.normalsecurity.security;
 
-import com.java.normalsecurity.model.Role;
 import com.java.normalsecurity.model.Student;
 
 import java.util.*;
@@ -13,15 +12,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class MyUserDetails implements UserDetails {
 
-    private Student student;
+   
 
     private String name;
     private String password;
     private List<GrantedAuthority> authorities;
 
-//    public MyUserDetails(Student student) {
-//        this.student = student;
-//    }
+
 
     public MyUserDetails(Student student) {
         name = student.getName();
@@ -68,56 +65,4 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 
-//	private User user;
-//	public MyUserDetails(User user) {
-//		this.user=user;
-//	}
-//	
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities() {
-//		Set<Role> roles=user.getRoles();
-//		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-//		
-//		for(Role role:roles) {
-//			authorities.add(new SimpleGrantedAuthority(role.getName()));
-//		}
-//		
-//		return authorities;
-//	}
-//
-//	@Override
-//	public String getPassword() {
-//		// TODO Auto-generated method stub
-//		return user.getPassword();
-//	}
-//
-//	@Override
-//	public String getUsername() {
-//		// TODO Auto-generated method stub
-//		return user.getUsername();
-//	}
-//
-//	@Override
-//	public boolean isAccountNonExpired() {
-//		// TODO Auto-generated method stub
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean isAccountNonLocked() {
-//		// TODO Auto-generated method stub
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean isCredentialsNonExpired() {
-//		// TODO Auto-generated method stub
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean isEnabled() {
-//		// TODO Auto-generated method stub
-//		return user.isEnabled();
-//	}
 }

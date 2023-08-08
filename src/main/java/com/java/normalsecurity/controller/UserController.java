@@ -21,7 +21,6 @@ public class UserController {
     @PostMapping(path = "/save")
     public ResponseEntity<Object> save(@RequestBody Student student){
         try {
-            System.out.println(student);
            student.setPassword(passwordEncoder.encode(student.getPassword()));
             return new ResponseEntity<>(studentService.save(student), HttpStatus.OK);
         }catch(Exception e){
@@ -35,7 +34,6 @@ public class UserController {
     @GetMapping(path = "/hello")
     public ResponseEntity<Object> msg(){
        try {
-           System.out.println("hello");
            return ResponseEntity.ok("this is admin role");
        }catch (Exception e){
            throw new UserException(e.getLocalizedMessage());
@@ -48,7 +46,6 @@ public class UserController {
     @GetMapping(path = "/msg")
     public ResponseEntity<Object> msg1(){
          try {
-             System.out.println("hello");
              return ResponseEntity.ok("this is user role");
          }catch (Exception e){
              throw new UserException(e.getLocalizedMessage());

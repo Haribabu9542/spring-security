@@ -18,8 +18,7 @@ public class Student {
     private String email;
     private String password;
 
-//    @Enumerated(EnumType.STRING)
+    // @Enumerated(EnumType.STRING)
     private String roles;
-
 
 }

@@ -9,5 +9,5 @@ public class NormalSecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NormalSecurityApplication.class, args);
 	}
-
+	
 }

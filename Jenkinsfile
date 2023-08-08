@@ -33,12 +33,7 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
-          stage('Jacoco Reports') {
-            steps {
-                  jacoco()
-                  echo "Publishing Jacoco Code Coverage Reports";
-            }
-        }
+
         stage('Sonarqube') {
             steps {
                 script{

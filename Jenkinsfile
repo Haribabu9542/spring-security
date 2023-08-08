@@ -39,8 +39,8 @@ pipeline{
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar-token'){
                         // sh "${scannerHome}/bin/sonar-scanner"
-                        sh 'mvn sonar:sonar'
-                        // sh "mvn clean verify sonar:sonar -Dsonar.projectKey=myproject -Dsonar.projectName='myproject' -Dsonar.host.url=http://localhost:9000   -Dsonar.token=sqp_410d143ef26ab040337e2a747940fe22af3ac409"
+                        // sh 'mvn sonar:sonar'
+                        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=myproject -Dsonar.projectName='myproject' -Dsonar.host.url=http://localhost:9000   -Dsonar.token=sqp_410d143ef26ab040337e2a747940fe22af3ac409"
                     }
                 }
             }

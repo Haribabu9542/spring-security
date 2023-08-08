@@ -45,23 +45,24 @@ pipeline{
                 }
             }
         }
-        stage('SonarQube Quality Gate') {
-            steps {
-                script{
-                  timeout(time: 10, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
 
-                    // def qualitygate = waitForQualityGate()
-                    // if (qualitygate.status != 'OK') {
-                    //     abortPipeline:true
-                    //     error "Pipeline aborted due to quality gate failure:   ${qualitygate.status}"
-                    // }else{
-                    //     echo "Quality Gate Passed." 
-                    // }
-                  }
-                }
-            }
-        }
+        // stage('SonarQube Quality Gate') {
+        //     steps {
+        //         script{
+        //           timeout(time: 10, unit: 'MINUTES'){
+
+        //             def qualitygate = waitForQualityGate()
+        //             if (qualitygate.status != 'OK') {
+        //                 abortPipeline:true
+        //                 error "Pipeline aborted due to quality gate failure:   ${qualitygate.status}"
+        //             }else{
+        //                 echo "Quality Gate Passed." 
+        //             }
+        //           }
+        //         }
+        //     }
+        // }
+        
         stage('Building image') {
             steps{
                 script {

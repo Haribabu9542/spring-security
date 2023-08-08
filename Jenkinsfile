@@ -5,23 +5,12 @@ pipeline{
     registryCredential = 'd02083cb-8700-49c3-abc7-53c57d9b86a1'
     dockerImage = ''
   }
-// pipeline {
     agent any
       tools {
         jdk 'openjdk-18'
     }
-    // environment {
-    //     SCANNER_HOME=tool 'sonar-scanner'
-    // }
-    // stages {
-    //     stage('Git Checkout') {
-    //         steps {
-               
-    //             git branch: 'main', credentialsId: 'github', 
-    //             url: 'https://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@github.com/Haribabu9542/spring-security.git'
-    //         }
-    //     }
-        
+  
+      stages{  
         stage('maven install') {
             steps {
                sh 'sudo apt update && sudo apt install -y maven && sudo chmod 777 /var/run/docker.sock'

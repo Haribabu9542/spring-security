@@ -10,7 +10,9 @@ pipeline{
       tools {
         jdk 'openjdk-18'
     }
-
+    environment {
+        SCANNER_HOME=tool 'sonar-scanner'
+    }
     stages {
         stage('maven install') {
             steps {
@@ -53,7 +55,7 @@ pipeline{
                         abortPipeline:true
                         error "Pipeline aborted due to quality gate failure:   ${qualitygate.status}"
                     }else{
-                        echo "Quality Gate Passed."
+                        echo "Quality Gate Passed." 
                     }
                   }
                 }

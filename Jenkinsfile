@@ -62,7 +62,7 @@ pipeline{
         //         }
         //     }
         // }
-        
+
         stage('Building image') {
             steps{
                 script {
@@ -73,7 +73,7 @@ pipeline{
           stage('Push Image') {
               steps{
                   script {
-                      docker.withRegistry( '', registryCredential )    {
+                      docker.withRegistry( '', credentials(registryCredential) )    {
                         dockerImage.push()
                       }
                   }

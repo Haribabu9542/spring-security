@@ -75,7 +75,7 @@ pipeline{
           stage('Push Image') {
               steps{
                   script {
-                      docker.withRegistry( "http://bagit.bassure.in", registryCredential )    {
+                      docker.withRegistry( "https://bagit.bassure.in/", registryCredential )    {
                         dockerImage.push()
                       }
                   }

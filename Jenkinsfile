@@ -10,9 +10,9 @@ pipeline{
       tools {
         jdk 'openjdk-18'
     }
-    environment {
-        SCANNER_HOME=tool 'sonar-scanner'
-    }
+    // environment {
+    //     SCANNER_HOME=tool 'sonar-scanner'
+    // }
     stages {
         stage('maven install') {
             steps {

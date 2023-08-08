@@ -13,14 +13,14 @@ pipeline{
     // environment {
     //     SCANNER_HOME=tool 'sonar-scanner'
     // }
-    stages {
-        stage('Git Checkout') {
-            steps {
+    // stages {
+    //     stage('Git Checkout') {
+    //         steps {
                
-                git branch: 'main', credentialsId: 'github', 
-                url: 'https://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@github.com/Haribabu9542/spring-security.git'
-            }
-        }
+    //             git branch: 'main', credentialsId: 'github', 
+    //             url: 'https://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@github.com/Haribabu9542/spring-security.git'
+    //         }
+    //     }
         
         stage('maven install') {
             steps {

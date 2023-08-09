@@ -9,7 +9,7 @@ pipeline{
     NEXUS_URL = "localhost:8081"
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
-    ARTIFACT_VERSION = "${BUILD_NUMBER}"
+    // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any
       tools {
@@ -117,7 +117,7 @@ pipeline{
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
                             groupId: pom.groupId,
-                            version: ARTIFACT_VERSION,
+                            // version: ARTIFACT_VERSION,
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts: [

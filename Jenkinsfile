@@ -4,6 +4,7 @@ pipeline{
     registry = "bagit.bassure.in/haribabu9542"
     registryCredential = 'dockerhub'
     dockerImage = ''
+    dockerImageTag = "$NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER"
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
     NEXUS_URL = "localhost:8081"
@@ -85,7 +86,8 @@ pipeline{
         
             steps { 
                     echo 'Building docker Image'
-                    sh 'docker build -t $NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER .'
+                    // sh 'docker build -t $NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER .'
+                    sh 'docker build -t $dockerImageTag  .'
                 }
         }
 
@@ -98,13 +100,15 @@ pipeline{
                     }
                    
                 }
+                echo 'Pushing Docker Image to Nexus Repository'
+                sh "docker push $dockerImageTag"
+                sh 'docker logout'
             }
         }
 
-        stage('Docker Push') {
+        stage('Clean Up') {
             steps {
-                echo 'Pushing Image to docker hub'
-                sh 'docker push $NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER'
+                sh "docker rmi $dockerImageTag"
             }
         }
 

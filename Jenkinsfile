@@ -79,6 +79,7 @@ pipeline{
                         dockerImage.push()
                       }
                   }
+                  sh "docker rmi " dockerImage
               }
             }
         

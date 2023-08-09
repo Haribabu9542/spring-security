@@ -69,33 +69,32 @@ pipeline{
         //     }
         // }
 
-        stage('Building image') {
-            steps{
-                script {
-                  // dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                  dockerImage = docker.build("${registry}/my-app:${BUILD_NUMBER}")
+        // stage('Building image') {
+        //     steps{
+        //         script {
+        //           dockerImage = docker.build("${registry}/my-app:${BUILD_NUMBER}")
 
-                }
-             }
-          }
-          stage('Push Image') {
-              steps{
-                  script {
-                      docker.withRegistry( "https://bagit.bassure.in/", registryCredential )    {
-                        dockerImage.push()
-                        // sh "docker rmi ${dockerImage}"
-                      }
-                       def imageTag = "${registry}/my-app:${BUILD_NUMBER}"
+        //         }
+        //      }
+        //   }
+        //   stage('Push Image') {
+        //       steps{
+        //           script {
+        //               docker.withRegistry( "https://bagit.bassure.in/", registryCredential )    {
+        //                 dockerImage.push()
+        //               }
+        //                def imageTag = "${registry}/my-app:${BUILD_NUMBER}"
 
-                      sh "docker logout https://bagit.bassure.in/"
-                           // Get the image tag
-                      sh "docker rmi ${imageTag}"
-                    //    sh "docker rmi "dockerImage
+        //               sh "docker logout https://bagit.bassure.in/"
+        //                    // Get the image tag
+        //               sh "docker rmi ${imageTag}"
 
-                  }
+        //           }
                   
-              }
-            }
+        //       }
+        //     }
+
+
             stage("publish to nexus") {
             steps {
                 script {

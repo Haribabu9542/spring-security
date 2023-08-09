@@ -79,7 +79,8 @@ pipeline{
                         dockerImage.push()
                         // sh "docker rmi ${dockerImage}"
                       }
-                       sh "docker rmi "+ dockerImage
+                      echo "docker rmi ${dockerImage}"
+                    //    sh "docker rmi "dockerImage
 
                   }
                   

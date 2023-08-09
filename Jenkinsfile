@@ -77,7 +77,7 @@ pipeline{
                   script {
                       docker.withRegistry( "https://bagit.bassure.in/", registryCredential )    {
                         dockerImage.push()
-                        sh "docker rmi " dockerImage
+                        sh "docker rmi ${dockerImage}"
                       }
                   }
                   

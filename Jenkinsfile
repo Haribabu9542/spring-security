@@ -79,7 +79,11 @@ pipeline{
                         dockerImage.push()
                         // sh "docker rmi ${dockerImage}"
                       }
-                      echo "docker rmi ${dockerImage}"
+                       def imageTag = "${registry}/my-app:${BUILD_NUMBER}"
+
+                      sh "docker logout https://bagit.bassure.in/"
+                           // Get the image tag
+                      sh "docker rmi ${imageTag}"
                     //    sh "docker rmi "dockerImage
 
                   }

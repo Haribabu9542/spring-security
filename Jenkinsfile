@@ -96,7 +96,8 @@ pipeline{
                 echo 'Nexus Docker Repository Login'
                 script{
                     withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'USER', passwordVariable: 'PASS' )]){
-                       sh ' echo $PASS | docker login -u $USER --password-stdin $NEXUS_DOCKER_REPO'
+                    //    sh ' echo $PASS | docker login -u $USER --password-stdin $NEXUS_DOCKER_REPO'
+                       sh ' echo $PASS | docker login -u $USER --password-stdin $PASS'
                     }
                    
                 }

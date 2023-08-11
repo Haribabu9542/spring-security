@@ -11,7 +11,7 @@ pipeline{
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
     // NEXUS_CREDS = credentials('nexus_creds')
-    NEXUS_DOCKER_REPO = 'http://localhost:8081/repository/nexus-docker/'
+    NEXUS_DOCKER_REPO = 'http://localhost:8081/'
     // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any

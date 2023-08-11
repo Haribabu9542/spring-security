@@ -4,14 +4,14 @@ pipeline{
     registry = "bagit.bassure.in/haribabu9542"
     registryCredential = 'dockerhub'
     dockerImage = ''
-    dockerImageTag = "$NEXUS_URL/my-app:$BUILD_NUMBER"
+    dockerImageTag = "$NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER"
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
     NEXUS_URL = "localhost:8081"
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
     // NEXUS_CREDS = credentials('nexus_creds')
-    NEXUS_DOCKER_REPO = 'http://localhost:8081/'
+    NEXUS_DOCKER_REPO = 'localhost:8082'
     // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any

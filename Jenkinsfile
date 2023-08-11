@@ -4,7 +4,7 @@ pipeline{
     registry = "bagit.bassure.in/haribabu9542"
     registryCredential = 'dockerhub'
     dockerImage = ''
-    dockerImageTag = "$NEXUS_DOCKER_REPO/my-app:$BUILD_NUMBER"
+    dockerImageTag = "$NEXUS_URL/my-app:$BUILD_NUMBER"
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
     NEXUS_URL = "localhost:8081"

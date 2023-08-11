@@ -11,7 +11,7 @@ pipeline{
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
     // NEXUS_CREDS = credentials('nexus_creds')
-    NEXUS_DOCKER_REPO = 'localhost:8082'
+    NEXUS_DOCKER_REPO = 'http://localhost:8081/repository/nexus-docker/'
     // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any
@@ -96,8 +96,8 @@ pipeline{
                 echo 'Nexus Docker Repository Login'
                 script{
                     withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'USER', passwordVariable: 'PASS' )]){
-                    //    sh ' echo $PASS | docker login -u $USER --password-stdin $NEXUS_DOCKER_REPO'
-                       sh ' echo $PASS | docker login -u $USER --password-stdin $PASS'
+                       sh ' echo $PASS | docker login -u $USER --password-stdin $NEXUS_DOCKER_REPO'
+                    //    sh ' echo $PASS | docker login -u $USER --password-stdin $PASS'
                     }
                    
                 }

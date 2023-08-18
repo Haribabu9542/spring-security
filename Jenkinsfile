@@ -22,7 +22,7 @@ pipeline{
       stages{  
         stage('maven install') {
             steps {
-               sh 'sudo apt update  && sudo chmod 777 /var/run/docker.sock'
+               sh 'sudo apt update  && sudo apt-get install -y maven && sudo chmod 777 /var/run/docker.sock'
             }
         }  
         stage('docker compose build') {

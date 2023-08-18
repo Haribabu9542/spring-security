@@ -17,6 +17,7 @@ pipeline{
     agent any
       tools {
         jdk 'openjdk-18'
+        maven "maven"
     }
   
       stages{  

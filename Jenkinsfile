@@ -1,6 +1,6 @@
 pipeline{
   environment {
-    scannerHome = tool 'SonarQube Scanner'
+    // scannerHome = tool 'SonarQube Scanner'
     registry = "bagit.bassure.in/haribabu9542"
     registryCredential = 'dockerhub'
     dockerImage = ''

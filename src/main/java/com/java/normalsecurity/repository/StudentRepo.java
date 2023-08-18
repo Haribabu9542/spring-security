@@ -13,7 +13,7 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
     // @Query("SELECT u from User u Where u.name = :name")
     // public Student getUserByUsername(@Param("name") String name);
     // public Student getUserByUsername(String name);
-    // Optional<Student> findByName(String username);
+    Optional<Student> findByName(String username);
 
    
 }

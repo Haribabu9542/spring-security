@@ -41,7 +41,9 @@ public class UserController {
     }
 
 //     @PreAuthorize("hasRole('USER')")
-     @PreAuthorize("hasAuthority('USER')")
+    //  @PreAuthorize("hasAuthority('USER','ADMIN')")
+     @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
+
 //    @PreAuthorize("isAuthenticated() || hasRole('ROLE_USER')")
     @GetMapping(path = "/msg")
     public ResponseEntity<Object> msg1(){
@@ -51,4 +53,5 @@ public class UserController {
              throw new UserException(e.getLocalizedMessage());
          }
     }
+    
 }

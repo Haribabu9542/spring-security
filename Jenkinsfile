@@ -29,7 +29,7 @@ pipeline{
         stage('docker compose build') {
             steps {
                 // Step to pull the code from Git repository
-                sh 'docker compose -f /var/lib/jenkins/workspace/ci_cd pipeline/docker-compose.yml up -d' 
+                sh 'docker compose -f /var/lib/jenkins/workspace/ci_cd_pipeline/docker-compose.yml up -d' 
 
             }
         } 

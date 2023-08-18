@@ -7,19 +7,8 @@ import java.io.InputStreamReader;
  */
 public class Demo {
 
-     public static void main1(String[] args) {
-        try(InputStreamReader isr= new InputStreamReader(System.in)) {
-            System.out.println("Enter: ");
-            int letters= isr.read();
-            while (isr.read()){
-                System.out.println(letters);
-                letters= isr.read();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    public static void main(String[] args) {
+     
+    public static void main2(String[] args) {
         try (InputStreamReader isr = new InputStreamReader(System.in)) {
             System.out.println("Enter: ");
             int character =isr.read();

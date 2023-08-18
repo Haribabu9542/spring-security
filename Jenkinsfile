@@ -38,7 +38,7 @@ pipeline{
         //        sh 'mvn clean'
         //     }
         // }
-        stage('clen &  build') {
+        stage('clean &  build') {
             steps {
                 sh 'mvn clean package'
             }

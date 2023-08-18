@@ -23,13 +23,13 @@ pipeline{
       stages{  
         stage('maven install') {
             steps {
-               sh 'sudo apt update && sudo apt install -y maven && sudo chmod 777 /var/run/docker.sock'
+               sh 'sudo apt update  && sudo chmod 777 /var/run/docker.sock'
             }
         }  
         stage('docker compose build') {
             steps {
                 // Step to pull the code from Git repository
-                sh 'docker compose -f /var/lib/jenkins/workspace/mvn-project-test/docker-compose.yml up -d' 
+                sh 'docker compose -f /var/lib/jenkins/workspace/ci_cd pipeline/docker-compose.yml up -d' 
 
             }
         } 

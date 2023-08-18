@@ -25,7 +25,7 @@ services:
 
   postgres:
     # container_name: postgre
-    image: postgres
+    image: postgres:latest
     environment:
       POSTGRES_USER: haribabu
       POSTGRES_PASSWORD: password
@@ -40,7 +40,7 @@ services:
 
   pgadmin:
     # container_name: pgadm
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
 
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-hari@gmail.com}

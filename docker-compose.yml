@@ -24,7 +24,7 @@ services:
   #     - "9000:9000"    
 
   postgres:
-    container_name: postgre
+    # container_name: postgre
     image: postgres
     environment:
       POSTGRES_USER: haribabu
@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
 
   pgadmin:
-    container_name: pgadm
+    # container_name: pgadm
     image: dpage/pgadmin4
 
     environment:

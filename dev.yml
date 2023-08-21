@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-security
+  namespace: kube-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-security
+  template:
+    metadata:
+      labels:
+        app: spring-security
+    spec:
+      containers:
+      - name: spring-security-demo
+        image: localhost:8082/my-app:9
+        ports:
+        - name: http-port
+          containerPort: 8888
+        resources:
+            limits:
+              cpu: 800m
+              memory: 500Mi
+            requests:
+              cpu: 600m
+              memory: 300Mi
+      imagePullSecrets:
+        - name:  nexus-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-service
+  namespace: kube-system
+spec:
+  ports:
+  - port: 8888
+    # nodePort: 8888
+    targetPort: http-port
+    protocol: TCP
+  selector:
+    app: spring-security
+  type: NodePort
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: security-autoscaler
+  namespace: kube-system
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: spring-security
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80  
+
+
+  #testing
+  # kubectl run -it load-generator  --image=busybox bin/sh
+  # wget http://hpa-example.default.svc.cluster.local:31001    default namespace
+  # wget http://hpa-example.kube-system.svc.cluster.local:31001    default namespace
+  #  rm index.html
+  # while true; do wget -q -O- http://hpa-example.default.svc.cluster.local:31001; done

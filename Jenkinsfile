@@ -112,6 +112,11 @@ pipeline{
                 sh "docker rmi $dockerImageTag"
             }
         }
+        // stage('minikubestart') {
+        //     steps {
+        //         sh "kubectl create -f /var/lib/jenkins/workspace/ci_cd_pipeline/dev.yml"
+        //     }
+        // }
 
         //   stage('Push image into  private registry') {
         //       steps{

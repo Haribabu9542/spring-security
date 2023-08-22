@@ -10,7 +10,7 @@ pipeline{
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
     // NEXUS_CREDS = credentials('nexus_creds')
-    NEXUS_DOCKER_REPO = '192.168.6.241:8082'
+    NEXUS_DOCKER_REPO = 'localhost:8082'
     // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any

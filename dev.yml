@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: spring-security-demo
-        image: localhost:8082/my-app:9
+        image: localhost:8082/my-app:14
         ports:
         - name: http-port
           containerPort: 8888

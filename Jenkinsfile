@@ -10,7 +10,7 @@ pipeline{
     NEXUS_REPOSITORY = "maven-nexus-repo"
     NEXUS_CREDENTIAL_ID = "nexus"
     // NEXUS_CREDS = credentials('nexus_creds')
-    NEXUS_DOCKER_REPO = 'localhost:8082'
+    NEXUS_DOCKER_REPO = 'ba1d-49-207-182-199.ngrok-free.app'
     // ARTIFACT_VERSION = "${BUILD_NUMBER}"
   }
     agent any
